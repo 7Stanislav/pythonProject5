@@ -16,3 +16,18 @@
 Решите через рекурсию. В задании нельзя применять циклы.
 Допускается исп-е встроенных ф-ций
 """
+
+def my_func(first, last, n):
+    while first <= last:
+        while n <= 10 and first <= last:
+            print(first, chr(first),end=" ")
+            first += 1
+            n += 1
+        n = 1
+        print(" ")
+        return my_func(first, last, n)
+
+n = 1
+first = 32
+last = 127
+my_func(first, last, n)

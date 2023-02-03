@@ -15,3 +15,18 @@
 Не забудьте проверить на числе, которое оканчивается на 0.
 1230 -> 0321
 """
+
+def my_func(num, res):
+    if num == 0:
+        res = "".join(map(str,res))
+        print(f"{num1} -> {res}")
+    else:
+        i = num % 10
+        res.append(i)
+        num = num // 10
+        return my_func(num, res)
+
+num = int(input("Введите число: "))
+num1 = num
+res = []
+my_func(num, res)

@@ -23,3 +23,36 @@
 Вы вместо трехзначного числа ввели строку (((. Исправьтесь
 Введите операцию (+, -, *, / или 0 для выхода):
 """
+
+def my_func(op, num1, num2):
+    op = input("Введите операцию (+, -, *, / или 0 для выхода): ")
+    if op == "0":
+        exit
+    elif op == "+" or op == "-" or op == "*" or op == "/":
+        try:
+            num1 = int(input("Введите первое число: "))
+        except:
+            print("Вы ввели строку вместо числа, исправьтесь.")
+            my_func(op, num1, num2)
+        try:
+            num2 = int(input("Введите второе число: "))
+        except:
+            print("Вы ввели строку вместо числа, исправьтесь.")
+            my_func(op, num1, num2)
+        if op == "+":
+            print(f'Ваш результат: {num1 + num2}')
+        if op == "-":
+            print(f'Ваш результат: {num1 - num2}')
+        if op == "*":
+            print(f'Ваш результат: {num1 * num2}')
+        if op == "/":
+            try:
+                print(f'Ваш результат: {num1 / num2}')
+            except:
+                print("На ноль делить нельзя")
+                my_func(op, num1, num2)
+        my_func(op, num1, num2)
+    else:
+        print("Введите корректный знак операции")
+        my_func(op, num1, num2)
+my_func("+", 1, 2)

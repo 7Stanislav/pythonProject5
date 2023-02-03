@@ -6,3 +6,25 @@
 то вывести загаданное число.
 Решите через рекурсию. В задании нельзя применять циклы.
 """
+
+from random import randint
+
+def my_func(n, count, my_num):
+    while count < 10:
+        my_num = int(input("Введите число: "))
+        if my_num > n:
+            print("Число больше загаданного")
+        elif my_num == n:
+            print(f"Поздравляем, Вы угадали! Загаданное число - {n}")
+            exit()
+        else:
+            print("Число меньше загаданного")
+        count +=1
+        my_func(n, count, my_num)
+    print(f"Вы исчерпали количество попыток. Загаданное число: {n}")
+    exit()
+
+n = randint(0, 100)
+my_num = 101
+count = 0
+my_func(n, count, my_num)

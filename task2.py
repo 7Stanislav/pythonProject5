@@ -14,3 +14,18 @@
 Введите число: 123
 Количество четных и нечетных цифр в числе равно: (1, 2)
 """
+
+def my_func(num, count1=0, count2=0):
+    if num == 0:
+        print(f"Количество четных и нечетных цифр в числе равно: ({count1}, {count2})")
+    else:
+        i = num % 10
+        num = num // 10
+        if i % 2 == 0:
+            count1 += 1
+        else:
+            count2 += 1
+        return my_func(num, count1, count2)
+
+num = int(input("Введите число: "))
+my_func(num)
