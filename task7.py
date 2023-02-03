@@ -10,3 +10,17 @@
 Правой части выражения в рекурсивной ф-ции быть не должно!
 Решите через рекурсию. В задании нельзя применять циклы.
 """
+
+def my_func(n, my_num, my_sum, count):
+    if my_sum < my_num:
+        my_sum += count
+        count += 1
+        return my_func(n, my_num, my_sum, count)
+    else:
+        print(f"Для n = {n}\nверно равенство: {my_sum} = {n}({n}+1)/2")
+
+n = int(input("Введите натуральное число: "))
+my_num = n * (n + 1) / 2
+my_sum = 0
+count = 0
+my_func(n, my_num, my_sum, count)
